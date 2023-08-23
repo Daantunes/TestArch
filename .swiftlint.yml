@@ -26,6 +26,7 @@ opt_in_rules: # some rules are only opt-in
   - multiline_parameters_brackets
   - operator_usage_whitespace
   - toggle_bool
+  - trailing_whitespace
   - yoda_condition
   - array_init
 
