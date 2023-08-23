@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A7692A12A96223B0098D6F6 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692962A96223B0098D6F6 /* DependencyContainer.swift */; };
+		2A7692A22A96223B0098D6F6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692982A96223B0098D6F6 /* UserService.swift */; };
+		2A7692A32A96223B0098D6F6 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692992A96223B0098D6F6 /* BaseService.swift */; };
+		2A7692A42A96223B0098D6F6 /* HobbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A76929A2A96223B0098D6F6 /* HobbyService.swift */; };
+		2A7692A52A96223B0098D6F6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A76929C2A96223B0098D6F6 /* UserRepository.swift */; };
+		2A7692A62A96223B0098D6F6 /* HobbyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A76929D2A96223B0098D6F6 /* HobbyRepository.swift */; };
+		2A7692A72A96223B0098D6F6 /* Hobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A76929F2A96223B0098D6F6 /* Hobby.swift */; };
+		2A7692A82A96223B0098D6F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692A02A96223B0098D6F6 /* User.swift */; };
 		ED3A9F512A96021300AF6FB3 /* TestArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A9F502A96021300AF6FB3 /* TestArchApp.swift */; };
 		ED3A9F532A96021300AF6FB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A9F522A96021300AF6FB3 /* ContentView.swift */; };
 		ED3A9F552A96021400AF6FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3A9F542A96021400AF6FB3 /* Assets.xcassets */; };
@@ -18,6 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A7692962A96223B0098D6F6 /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		2A7692982A96223B0098D6F6 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		2A7692992A96223B0098D6F6 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		2A76929A2A96223B0098D6F6 /* HobbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HobbyService.swift; sourceTree = "<group>"; };
+		2A76929C2A96223B0098D6F6 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		2A76929D2A96223B0098D6F6 /* HobbyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HobbyRepository.swift; sourceTree = "<group>"; };
+		2A76929F2A96223B0098D6F6 /* Hobby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hobby.swift; sourceTree = "<group>"; };
+		2A7692A02A96223B0098D6F6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED3A9F4D2A96021300AF6FB3 /* TestArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3A9F502A96021300AF6FB3 /* TestArchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArchApp.swift; sourceTree = "<group>"; };
 		ED3A9F522A96021300AF6FB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +56,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A7692952A96223B0098D6F6 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				2A7692962A96223B0098D6F6 /* DependencyContainer.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		2A7692972A96223B0098D6F6 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2A7692982A96223B0098D6F6 /* UserService.swift */,
+				2A7692992A96223B0098D6F6 /* BaseService.swift */,
+				2A76929A2A96223B0098D6F6 /* HobbyService.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		2A76929B2A96223B0098D6F6 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2A76929C2A96223B0098D6F6 /* UserRepository.swift */,
+				2A76929D2A96223B0098D6F6 /* HobbyRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2A76929E2A96223B0098D6F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A76929F2A96223B0098D6F6 /* Hobby.swift */,
+				2A7692A02A96223B0098D6F6 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		ED3A9F442A96021300AF6FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +116,10 @@
 				EDDAF5742A96123B00940D5E /* LoginView.swift */,
 				EDDAF5782A96134200940D5E /* HobbiesListView.swift */,
 				EDDAF57C2A96162000940D5E /* HobbiesDetailView.swift */,
+				2A7692952A96223B0098D6F6 /* DependencyInjection */,
+				2A76929E2A96223B0098D6F6 /* Models */,
+				2A76929B2A96223B0098D6F6 /* Repositories */,
+				2A7692972A96223B0098D6F6 /* Store */,
 				EDDAF57A2A96148300940D5E /* ProfileView.swift */,
 				ED3A9F542A96021400AF6FB3 /* Assets.xcassets */,
 				ED3A9F562A96021400AF6FB3 /* Preview Content */,
@@ -171,12 +227,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7692A52A96223B0098D6F6 /* UserRepository.swift in Sources */,
+				2A7692A12A96223B0098D6F6 /* DependencyContainer.swift in Sources */,
 				EDDAF57D2A96162000940D5E /* HobbiesDetailView.swift in Sources */,
 				EDDAF5752A96123B00940D5E /* LoginView.swift in Sources */,
 				ED3A9F532A96021300AF6FB3 /* ContentView.swift in Sources */,
+				2A7692A22A96223B0098D6F6 /* UserService.swift in Sources */,
+				2A7692A82A96223B0098D6F6 /* User.swift in Sources */,
 				EDDAF57B2A96148300940D5E /* ProfileView.swift in Sources */,
+				2A7692A42A96223B0098D6F6 /* HobbyService.swift in Sources */,
+				2A7692A62A96223B0098D6F6 /* HobbyRepository.swift in Sources */,
 				ED3A9F512A96021300AF6FB3 /* TestArchApp.swift in Sources */,
 				EDDAF5792A96134200940D5E /* HobbiesListView.swift in Sources */,
+				2A7692A32A96223B0098D6F6 /* BaseService.swift in Sources */,
+				2A7692A72A96223B0098D6F6 /* Hobby.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
