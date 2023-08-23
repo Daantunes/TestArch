@@ -3,10 +3,15 @@ import CoreLocation
 
 @main
 struct TestArchApp: App {
+  var isLoggedIn: Bool = true
+
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      if isLoggedIn {
+        ContentView()
+      } else {
+        LoginView()
+      }
     }
   }
 }
-
