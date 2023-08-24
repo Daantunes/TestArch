@@ -5,7 +5,7 @@ struct HobbiesListView: View {
 
   var body: some View {
     NavigationView {
-      List{
+      List {
         ForEach(hobbiesList, id: \.self) { hobby in
           NavigationLink {
             HobbiesDetailView(name: hobby)

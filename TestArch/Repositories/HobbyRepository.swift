@@ -1,8 +1,8 @@
 import Foundation
+import SwiftUI
 
-class HobbyRepository: ObservableObject {
+struct HobbyRepository {
 
-  @Published
   var hobbies: [Hobby] = []
 
   let hobbyService: HobbyService

@@ -1,6 +1,7 @@
 import Foundation
+import SwiftUI
 
-class UserRepository: ObservableObject {
+class UserRepository {
 
   @Published
   var user: User?
@@ -10,5 +11,9 @@ class UserRepository: ObservableObject {
   init(userService: UserService) {
     self.userService = userService
     user = userService.loadUser()
+  }
+
+  func login() {
+    
   }
 }
