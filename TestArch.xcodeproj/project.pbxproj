@@ -15,6 +15,12 @@
 		2A7692A62A96223B0098D6F6 /* HobbyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A76929D2A96223B0098D6F6 /* HobbyRepository.swift */; };
 		2A7692A72A96223B0098D6F6 /* Hobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A76929F2A96223B0098D6F6 /* Hobby.swift */; };
 		2A7692A82A96223B0098D6F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692A02A96223B0098D6F6 /* User.swift */; };
+		2A7692AB2A9624D10098D6F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692AA2A9624D10098D6F6 /* LoginViewModel.swift */; };
+		2A7692AD2A963C710098D6F6 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692AC2A963C710098D6F6 /* AppEnvironment.swift */; };
+		2A7692B12A9650650098D6F6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692B02A9650650098D6F6 /* AppCoordinator.swift */; };
+		2A7692B32A9684520098D6F6 /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7692B22A9684520098D6F6 /* AppCoordinatorView.swift */; };
+		2AA23EEA2A97642C0003CCD9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA23EE92A97642C0003CCD9 /* LoginCoordinator.swift */; };
+		2AA23EED2A97A5010003CCD9 /* ContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA23EEC2A97A5010003CCD9 /* ContentCoordinator.swift */; };
 		ED3A9F512A96021300AF6FB3 /* TestArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A9F502A96021300AF6FB3 /* TestArchApp.swift */; };
 		ED3A9F532A96021300AF6FB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A9F522A96021300AF6FB3 /* ContentView.swift */; };
 		ED3A9F552A96021400AF6FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3A9F542A96021400AF6FB3 /* Assets.xcassets */; };
@@ -34,6 +40,12 @@
 		2A76929D2A96223B0098D6F6 /* HobbyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HobbyRepository.swift; sourceTree = "<group>"; };
 		2A76929F2A96223B0098D6F6 /* Hobby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hobby.swift; sourceTree = "<group>"; };
 		2A7692A02A96223B0098D6F6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2A7692AA2A9624D10098D6F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2A7692AC2A963C710098D6F6 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		2A7692B02A9650650098D6F6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2A7692B22A9684520098D6F6 /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
+		2AA23EE92A97642C0003CCD9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		2AA23EEC2A97A5010003CCD9 /* ContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoordinator.swift; sourceTree = "<group>"; };
 		ED3A9F4D2A96021300AF6FB3 /* TestArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3A9F502A96021300AF6FB3 /* TestArchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArchApp.swift; sourceTree = "<group>"; };
 		ED3A9F522A96021300AF6FB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +104,36 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2A7692A92A9624BF0098D6F6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EDDAF5742A96123B00940D5E /* LoginView.swift */,
+				2A7692AA2A9624D10098D6F6 /* LoginViewModel.swift */,
+				2AA23EE92A97642C0003CCD9 /* LoginCoordinator.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		2AA23EE82A9764020003CCD9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ED3A9F502A96021300AF6FB3 /* TestArchApp.swift */,
+				2A7692AC2A963C710098D6F6 /* AppEnvironment.swift */,
+				2A7692B22A9684520098D6F6 /* AppCoordinatorView.swift */,
+				2A7692B02A9650650098D6F6 /* AppCoordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2AA23EEB2A97A4DA0003CCD9 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				ED3A9F522A96021300AF6FB3 /* ContentView.swift */,
+				2AA23EEC2A97A5010003CCD9 /* ContentCoordinator.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		ED3A9F442A96021300AF6FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +153,9 @@
 		ED3A9F4F2A96021300AF6FB3 /* TestArch */ = {
 			isa = PBXGroup;
 			children = (
-				ED3A9F502A96021300AF6FB3 /* TestArchApp.swift */,
-				ED3A9F522A96021300AF6FB3 /* ContentView.swift */,
-				EDDAF5742A96123B00940D5E /* LoginView.swift */,
+				2AA23EEB2A97A4DA0003CCD9 /* Content */,
+				2AA23EE82A9764020003CCD9 /* App */,
+				2A7692A92A9624BF0098D6F6 /* Auth */,
 				EDDAF5782A96134200940D5E /* HobbiesListView.swift */,
 				EDDAF57C2A96162000940D5E /* HobbiesDetailView.swift */,
 				2A7692952A96223B0098D6F6 /* DependencyInjection */,
@@ -229,18 +271,24 @@
 			files = (
 				2A7692A52A96223B0098D6F6 /* UserRepository.swift in Sources */,
 				2A7692A12A96223B0098D6F6 /* DependencyContainer.swift in Sources */,
+				2AA23EED2A97A5010003CCD9 /* ContentCoordinator.swift in Sources */,
 				EDDAF57D2A96162000940D5E /* HobbiesDetailView.swift in Sources */,
 				EDDAF5752A96123B00940D5E /* LoginView.swift in Sources */,
 				ED3A9F532A96021300AF6FB3 /* ContentView.swift in Sources */,
+				2A7692B12A9650650098D6F6 /* AppCoordinator.swift in Sources */,
 				2A7692A22A96223B0098D6F6 /* UserService.swift in Sources */,
 				2A7692A82A96223B0098D6F6 /* User.swift in Sources */,
 				EDDAF57B2A96148300940D5E /* ProfileView.swift in Sources */,
+				2A7692AB2A9624D10098D6F6 /* LoginViewModel.swift in Sources */,
 				2A7692A42A96223B0098D6F6 /* HobbyService.swift in Sources */,
+				2A7692B32A9684520098D6F6 /* AppCoordinatorView.swift in Sources */,
 				2A7692A62A96223B0098D6F6 /* HobbyRepository.swift in Sources */,
+				2A7692AD2A963C710098D6F6 /* AppEnvironment.swift in Sources */,
 				ED3A9F512A96021300AF6FB3 /* TestArchApp.swift in Sources */,
 				EDDAF5792A96134200940D5E /* HobbiesListView.swift in Sources */,
 				2A7692A32A96223B0098D6F6 /* BaseService.swift in Sources */,
 				2A7692A72A96223B0098D6F6 /* Hobby.swift in Sources */,
+				2AA23EEA2A97642C0003CCD9 /* LoginCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +425,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,6 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
