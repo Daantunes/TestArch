@@ -2,18 +2,15 @@ import Foundation
 import SwiftUI
 
 class UserRepository {
+    @Published
+    var user: User?
 
-  @Published
-  var user: User?
+    let userService: UserService
 
-  let userService: UserService
+    init(userService: UserService) {
+        self.userService = userService
+        user = userService.loadUser()
+    }
 
-  init(userService: UserService) {
-    self.userService = userService
-    user = userService.loadUser()
-  }
-
-  func login() {
-    
-  }
+    func login() {}
 }

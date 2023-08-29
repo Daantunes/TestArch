@@ -2,23 +2,21 @@ import Foundation
 import SwiftUI
 
 final class DependencyContainer: ObservableObject {
+    static let shared = DependencyContainer()
 
-  static let shared = DependencyContainer()
+    var userRepository: UserRepository = .init(userService: UserService())
 
-  var userRepository: UserRepository = UserRepository(userService: UserService())
+    var hobbyRepository: HobbyRepository = .init(hobbyService: HobbyService())
 
-  var hobbyRepository: HobbyRepository = HobbyRepository(hobbyService: HobbyService())
+    // MARK: - Views -
 
-  // MARK: - Views -
+    func makeLoginView(from coordinator: LoginCoordinated) -> LoginView {
+        LoginView(viewModel: resolveLoginViewModel(delegate: coordinator))
+    }
 
-  func makeLoginView(from coordinator: LoginCoordinated) -> LoginView {
-    LoginView(viewModel: resolveLoginViewModel(delegate: coordinator))
-  }
+    // MARK: - View Models -
 
-  // MARK: - View Models -
-
-  func resolveLoginViewModel(delegate: LoginCoordinated) -> LoginViewModel {
-    LoginViewModel(userRepository: userRepository, delegate: delegate)
-  }
-
+    func resolveLoginViewModel(delegate: LoginCoordinated) -> LoginViewModel {
+        LoginViewModel(userRepository: userRepository, delegate: delegate)
+    }
 }

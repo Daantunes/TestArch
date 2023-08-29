@@ -2,13 +2,12 @@ import Foundation
 import SwiftUI
 
 struct HobbyRepository {
+    var hobbies: [Hobby] = []
 
-  var hobbies: [Hobby] = []
+    let hobbyService: HobbyService
 
-  let hobbyService: HobbyService
-
-  init(hobbyService: HobbyService) {
-    self.hobbyService = hobbyService
-    hobbies = hobbyService.loadHobbies() ?? []
-  }
+    init(hobbyService: HobbyService) {
+        self.hobbyService = hobbyService
+        hobbies = hobbyService.loadHobbies() ?? []
+    }
 }
