@@ -1,12 +1,11 @@
 import Foundation
 
 class HobbyService: BaseService<[Hobby]> {
+    func loadHobbies() -> [Hobby]? {
+        load(key: "hobbies")
+    }
 
-  func loadHobbies() -> [Hobby]? {
-    return load(key: "hobbies")
-  }
-
-  func saveUser(data: [Hobby]) -> Bool {
-    return save(key: "hobbies", data: data)
-  }
+    func saveUser(data: [Hobby]) -> Bool {
+        save(key: "hobbies", data: data)
+    }
 }

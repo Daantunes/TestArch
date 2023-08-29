@@ -1,12 +1,11 @@
 import Foundation
 
 class UserService: BaseService<User> {
+    func loadUser() -> User? {
+        load(key: "user")
+    }
 
-  func loadUser() -> User? {
-    return load(key: "user")
-  }
-
-  func saveUser(data: User) -> Bool {
-    return save(key: "user", data: data)
-  }
+    func saveUser(data: User) -> Bool {
+        save(key: "user", data: data)
+    }
 }

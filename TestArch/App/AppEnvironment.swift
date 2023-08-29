@@ -1,15 +1,15 @@
 import Foundation
 
 enum AppState: Equatable {
-  case loggedIn, authenticate
+    case loggedIn
+    case authenticate
 }
 
 class AppEnvironment: ObservableObject {
+    @Published
+    private(set) var state: AppState = .authenticate
 
-  @Published
-  private(set) var state: AppState = .authenticate
-
-  func changeState(from: any Coordinator, to state: AppState) {
-    self.state = state
-  }
+    func changeState(from _: any Coordinator, to state: AppState) {
+        self.state = state
+    }
 }

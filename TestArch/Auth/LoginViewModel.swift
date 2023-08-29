@@ -2,27 +2,26 @@ import Foundation
 import SwiftUI
 
 class LoginViewModel: ObservableObject {
+    @Published
+    var username: String = ""
 
-  @Published
-  var username: String = ""
+    @Published
+    var password: String = ""
 
-  @Published
-  var password: String = ""
+    var userRepository: UserRepository
 
-  var userRepository: UserRepository
+    weak var delegate: LoginCoordinated?
 
-  weak var delegate: LoginCoordinated?
+    init(userRepository: UserRepository, delegate: LoginCoordinated) {
+        self.userRepository = userRepository
+        self.delegate = delegate
+    }
 
-  init(userRepository: UserRepository, delegate: LoginCoordinated) {
-    self.userRepository = userRepository
-    self.delegate = delegate
-  }
+    func validatePassword() -> Bool {
+        false
+    }
 
-  func validatePassword() -> Bool {
-    return false
-  }
-
-  func login() {
-    delegate?.didLogin()
-  }
+    func login() {
+        delegate?.didLogin()
+    }
 }

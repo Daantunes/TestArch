@@ -1,13 +1,9 @@
 import SwiftUI
 
 class ContentCoordinator: Coordinator {
+    func build() -> AnyView {
+        AnyView(ContentView())
+    }
 
-  func build() -> AnyView {
-
-    return AnyView(ContentView())
-  }
-
-  func start() {
-
-  }
+    func start() {}
 }

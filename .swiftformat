@@ -1,0 +1,126 @@
+# list of rules will be available at:
+# https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+
+# swift version
+
+--swiftversion 5.5
+
+
+# exclude folders
+# f.e. auto code generated files
+
+--exclude ./*/External/,./**/Generated/,./Pods/,./Templates/,./FlagshipAPI,./ResourceGen
+
+
+# formatting options
+
+## rules with specification
+
+### elseOnSameLine
+--elseposition next-line
+--guardelse next-line
+### indent
+--indent 4
+--indentstrings true
+### modifierOrder
+--modifierorder override,acl,setterACL,dynamic,mutators,lazy,final,required,convenience,typeMethods,owned
+### semicolons
+--semicolons never
+### sortedImports
+--importgrouping testable-last
+### trailingCommas
+--commas inline
+### unusedArguments
+--stripunusedargs closure-only
+### wrapArguments
+--wraparguments before-first
+--wrapcollections before-first
+--wrapparameters before-first
+### wrapAttributes
+--funcattributes prev-line
+--typeattributes prev-line
+--varattributes prev-line
+
+
+# enable rules
+
+--enable                                \
+    andOperator,                        \
+    anyObjectProtocol,                  \
+    assertionFailures,                  \
+    blankLinesAtEndOfScope,             \
+    blankLinesBetweenImports,           \
+    blankLinesBetweenScopes,            \
+    blockComments,                      \
+    consecutiveBlankLines,              \
+    consecutiveSpaces,                  \
+    duplicateImports,                   \
+    elseOnSameLine,                     \
+    enumNamespaces,                     \
+    hoistPatternLet,                    \
+    indent,                             \
+    initCoderUnavailable,               \
+    leadingDelimiters,                  \
+    linebreakAtEndOfFile,               \
+    modifierOrder,                      \
+    redundantBackticks,                 \
+    redundantBreak,                     \
+    redundantClosure,                   \
+    redundantExtensionACL,              \
+    redundantFileprivate,               \
+    redundantGet,                       \
+    redundantInit,                      \
+    redundantLet,                       \
+    redundantNilInit,                   \
+    redundantObjc,                      \
+    redundantParens,                    \
+    redundantPattern,                   \
+    redundantRawValues,                 \
+    redundantReturn,                    \
+    redundantSelf,                      \
+    redundantType,                      \
+    redundantVoidReturnType,            \
+    semicolons,                         \
+    sortImports,                      \
+    sortSwitchCases,                  \
+    spaceAroundBraces,                  \
+    spaceAroundBrackets,                \
+    spaceAroundComments,                \
+    spaceAroundGenerics,                \
+    spaceAroundOperators,               \
+    spaceAroundParens,                  \
+    spaceInsideBraces,                  \
+    spaceInsideBrackets,                \
+    spaceInsideComments,                \
+    spaceInsideGenerics,                \
+    spaceInsideParens,                  \
+    strongOutlets,                      \
+    strongifiedSelf,                    \
+    todos,                              \
+    trailingClosures,                   \
+    trailingCommas,                     \
+    trailingSpace,                      \
+    typeSugar,                          \
+    unusedArguments,                    \
+    void,                               \
+    wrapArguments,                      \
+    wrapAttributes,                     \
+    wrapConditionalBodies,              \
+    wrapEnumCases,                      \
+    wrapSwitchCases,                    \
+    yodaConditions
+
+
+# disable rules
+
+--disable                               \
+# issues with graphql codegen
+    acronyms,                           \
+    blankLinesAtStartOfScope,           \
+    markTypes,                          \
+    numberFormatting,                   \
+# issues with publishers
+    preferKeyPath,                      \
+    redundantFileprivate,               \
+    wrap,                               \
+    wrapMultilineStatementBraces

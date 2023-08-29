@@ -1,22 +1,21 @@
-import SwiftUI
 import CoreLocation
+import SwiftUI
 
 @main
 struct TestArchApp: App {
+    var appEnvironment: AppEnvironment
 
-  var appEnvironment: AppEnvironment
+    var coordinator: AppCoordinator
 
-  var coordinator: AppCoordinator
-
-  init() {
-    self.appEnvironment = AppEnvironment()
-    self.coordinator = AppCoordinator(appEnvironment: appEnvironment)
-  }
-
-  var body: some Scene {
-    WindowGroup {
-      coordinator.build()
-        .environmentObject(appEnvironment)
+    init() {
+        appEnvironment = AppEnvironment()
+        coordinator = AppCoordinator(appEnvironment: appEnvironment)
     }
-  }
+
+    var body: some Scene {
+        WindowGroup {
+            coordinator.build()
+                .environmentObject(appEnvironment)
+        }
+    }
 }
