@@ -1,6 +1,11 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# Tuist
+Derived/
+*.xcodeproj
+*.xcworkspace
+Tuist/Dependencies
+Tuist/Cache
+graph.dot
+graph.png
 
 ## User settings
 xcuserdata/
