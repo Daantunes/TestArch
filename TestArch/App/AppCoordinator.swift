@@ -10,6 +10,7 @@ protocol AppCoordinated: AnyObject {
 }
 
 class AppCoordinator: Coordinator, ObservableObject {
+
     var childCoordinator: Coordinator?
 
     var appEnvironment: AppEnvironment
