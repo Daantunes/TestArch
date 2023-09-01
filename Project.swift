@@ -1,5 +1,6 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
+import ProjectDependencies
 
 let project = Project(
     name: "TestArch",
@@ -8,8 +9,8 @@ let project = Project(
         automaticSchemesOptions: .disabled
     ),
     packages: [
-        .remote(url: "https://github.com/rundfunk47/stinsen", requirement: .upToNextMajor(from: "2.0.0")),
-        .remote(url: "https://github.com/hmlongco/Factory", requirement: .upToNextMajor(from: "2.2.0"))
+        ProjectDependencies.stinsen.package,
+        ProjectDependencies.factory.package
     ],
     settings: .settings(configurations: [
         .testArchDebug,
