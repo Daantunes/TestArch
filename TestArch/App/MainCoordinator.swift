@@ -19,19 +19,11 @@ final class MainCoordinator: NavigationCoordinatable {
 
 private extension MainCoordinator {
     func makeStart() -> some View {
-        return LoginView(viewModel: DependencyContainer.shared.resolveLoginViewModel(delegate: self))
+        return LoginView(viewModel: DependencyContainer.shared.resolveLoginViewModel())
     }
 
     func makeAuthenticated() -> TabViewCoordinator {
         TabViewCoordinator()
-    }
-}
-
-// MARK: - LoginCoordinated Extension
-
-extension MainCoordinator: LoginCoordinated {
-    func didLogin() {
-        root(\.authenticated)
     }
 }
 

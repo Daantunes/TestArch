@@ -14,13 +14,24 @@ struct LoginView: View {
     // MARK: - View
 
     var body: some View {
+        StateView(source: viewModel) { error in
+            Text(error.localizedDescription)
+                .onTapGesture {
+                    viewModel.send(.event(.tryAgain))
+                }
+        } content: { _ in
+            content
+        }
+    }
+
+    var content: some View {
         VStack {
-            TextField("Username", text: $viewModel.username)
+            TextField("Username", text: $viewModel.configuration.username)
                 .textFieldStyle(.roundedBorder)
-            TextField("Password", text: $viewModel.password)
+            TextField("Password", text: $viewModel.configuration.password)
                 .textFieldStyle(.roundedBorder)
             Button("Log In") {
-                viewModel.login()
+                viewModel.send(.event(.loginButtonTap))
             }
         }
         .padding()

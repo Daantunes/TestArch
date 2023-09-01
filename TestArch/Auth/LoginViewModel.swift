@@ -3,41 +3,81 @@
 //
 
 import SwiftUI
+import Stinsen
 
-class LoginViewModel: ObservableObject {
+class LoginViewModel: ViewModelObject {
 
     // MARK: - Properties
 
-    @Published var username: String = ""
+    @Published
+    private(set) var state: State = .success(true)
 
-    @Published var password: String = ""
+    @Published
+    var configuration = LoginConfiguration(username: "", password: "")
 
-    var userRepository: UserRepository
+    @RouterObject
+    private var router: MainCoordinator.Router?
 
-    weak var delegate: LoginCoordinated?
+    private var userRepository: UserRepository
 
     // MARK: - Lifecycle
 
-    init(userRepository: UserRepository, delegate: LoginCoordinated) {
+    init(userRepository: UserRepository) {
         self.userRepository = userRepository
-        self.delegate = delegate
-    }
-
-    // MARK: - Public Methods
-
-    func login() {
-        delegate?.didLogin()
-    }
-
-    // MARK: - Private Methods
-
-    private func validatePassword() -> Bool {
-        false
     }
 }
 
-// MARK: - LoginCoordinated Protocol
+// MARK: - Configurations
 
-protocol LoginCoordinated: AnyObject {
-    func didLogin()
+extension LoginViewModel {
+    struct LoginConfiguration {
+        var username: String
+        var password: String
+
+        func validatePassword() -> Bool {
+            password != "" ? true : false
+        }
+    }
+}
+
+// MARK: - Event & State
+
+extension LoginViewModel {
+    typealias Event = ViewModelEvent<ViewEvent>
+    typealias State = ViewModelState<Bool>
+
+    enum ViewEvent {
+        case loginButtonTap
+        case tryAgain
+    }
+
+    func send(_ event: ViewModelEvent<ViewEvent>) {
+        if case let .event(viewEvent) = event {
+            switch viewEvent {
+            case .loginButtonTap:
+                login()
+            case .tryAgain:
+                state = .success(true)
+            }
+
+        }
+    }
+}
+
+// MARK: - Private Helpers
+
+private extension LoginViewModel {
+    func login() {
+        if configuration.validatePassword() {
+            router?.coordinator.root(\.authenticated)
+        } else {
+            state = .failed(LoginError.fail)
+        }
+    }
+}
+
+// MARK: - Login Error
+
+private enum LoginError: Error {
+    case fail
 }

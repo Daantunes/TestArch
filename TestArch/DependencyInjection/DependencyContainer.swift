@@ -10,13 +10,13 @@ final class DependencyContainer: ObservableObject {
 
     // MARK: - Views -
 
-    func makeLoginView(from coordinator: LoginCoordinated) -> LoginView {
-        LoginView(viewModel: resolveLoginViewModel(delegate: coordinator))
+    func makeLoginView() -> LoginView {
+        LoginView(viewModel: resolveLoginViewModel())
     }
 
     // MARK: - View Models -
 
-    func resolveLoginViewModel(delegate: LoginCoordinated) -> LoginViewModel {
-        LoginViewModel(userRepository: userRepository, delegate: delegate)
+    func resolveLoginViewModel() -> LoginViewModel {
+        LoginViewModel(userRepository: userRepository)
     }
 }
