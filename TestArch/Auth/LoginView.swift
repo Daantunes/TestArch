@@ -1,11 +1,17 @@
+//
+//  Copyright © 2023 xgeeks. All rights reserved.
+//
+
 import SwiftUI
 
 struct LoginView: View {
+
+    // MARK: - Properties
+
     @ObservedObject
     var viewModel: LoginViewModel
 
-    @EnvironmentObject
-    var appEnvironment: AppEnvironment
+    // MARK: - View
 
     var body: some View {
         VStack {
@@ -21,10 +27,12 @@ struct LoginView: View {
     }
 }
 
-// struct LoginView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    LoginView(
-//      viewModel: LoginViewModel
-//    )
-//  }
-// }
+// MARK: - Previews
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        // TODO: Fix preview
+        EmptyView()
+    }
+}

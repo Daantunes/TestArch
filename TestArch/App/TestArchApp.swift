@@ -1,21 +1,22 @@
+//
+//  Copyright © 2023 xgeeks. All rights reserved.
+//
+
 import CoreLocation
 import SwiftUI
 
 @main
 struct TestArchApp: App {
-    var appEnvironment: AppEnvironment
 
-    var coordinator: AppCoordinator
+    // MARK: - Properties
+    
+    var coordinator = MainCoordinator()
 
-    init() {
-        appEnvironment = AppEnvironment()
-        coordinator = AppCoordinator(appEnvironment: appEnvironment)
-    }
+    // MARK: - Scene
 
     var body: some Scene {
         WindowGroup {
-            coordinator.build()
-                .environmentObject(appEnvironment)
+            coordinator.view()
         }
     }
 }
