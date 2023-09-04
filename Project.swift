@@ -7,8 +7,6 @@ let project = Project(
     organizationName: "xgeeks",
     options: .options(
         automaticSchemesOptions: .disabled,
-        disableBundleAccessors: true,
-        disableSynthesizedResourceAccessors: true
     ),
     packages: [
         ProjectDependencies.stinsen.package,
