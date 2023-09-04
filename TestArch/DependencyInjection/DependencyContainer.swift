@@ -14,9 +14,17 @@ final class DependencyContainer: ObservableObject {
         LoginView(viewModel: resolveLoginViewModel())
     }
 
+    func makeProfileLoginView() -> ProfileView {
+        ProfileView(viewModel: resolveProfileViewModel())
+    }
+
     // MARK: - View Models -
 
     func resolveLoginViewModel() -> LoginViewModel {
         LoginViewModel(userRepository: userRepository)
+    }
+
+    func resolveProfileViewModel() -> ProfileViewModel {
+        ProfileViewModel(userRepository: userRepository)
     }
 }

@@ -12,5 +12,7 @@ class UserRepository {
         user = userService.loadUser()
     }
 
-    func login() {}
+    func getUserName() -> String {
+        return user?.name ?? "Anonimous"
+    }
 }

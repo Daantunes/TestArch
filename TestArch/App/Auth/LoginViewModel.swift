@@ -37,6 +37,10 @@ extension LoginViewModel {
         func validatePassword() -> Bool {
             password != "" ? true : false
         }
+
+        func validateUsername() -> Bool {
+            username != "" ? true : false
+        }
     }
 }
 
@@ -68,7 +72,8 @@ extension LoginViewModel {
 
 private extension LoginViewModel {
     func login() {
-        if configuration.validatePassword() {
+        if configuration.validatePassword() && configuration.validateUsername() {
+            userRepository.user = User(name: configuration.username, email: "")
             router?.coordinator.root(\.authenticated)
         } else {
             state = .failed(LoginError.fail)
