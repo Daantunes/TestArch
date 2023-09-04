@@ -22,6 +22,10 @@ final class DependencyContainer: ObservableObject {
         HobbiesListView(viewModel: resolveHobbiesListViewModel())
     }
 
+    func makeHobbiesDetailView(name: String) -> HobbiesDetailView {
+        HobbiesDetailView(viewModel: resolveHobbiesDetailViewModel(name: name))
+    }
+
     // MARK: - View Models -
 
     private func resolveLoginViewModel() -> LoginViewModel {
@@ -34,5 +38,9 @@ final class DependencyContainer: ObservableObject {
 
     private func resolveHobbiesListViewModel() -> HobbiesListViewModel {
         HobbiesListViewModel(hobbyRepository: hobbyRepository)
+    }
+
+    private func resolveHobbiesDetailViewModel(name: String) -> HobbiesDetailViewModel {
+        HobbiesDetailViewModel(name: name)
     }
 }

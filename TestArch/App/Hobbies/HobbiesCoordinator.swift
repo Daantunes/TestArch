@@ -23,6 +23,6 @@ private extension HobbiesCoordinator {
     }
 
     func makeHobbyDetail(name: String) -> some View {
-        HobbiesDetailView(name: name)
+        DependencyContainer.shared.makeHobbiesDetailView(name: name)
     }
 }
