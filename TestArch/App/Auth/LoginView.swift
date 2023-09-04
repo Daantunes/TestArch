@@ -43,8 +43,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-
-        // TODO: Fix preview
-        EmptyView()
+        LoginView()
     }
 }

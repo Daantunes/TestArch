@@ -43,6 +43,6 @@ struct HobbiesListView: View {
 
 struct HobbiesListView_Previews: PreviewProvider {
     static var previews: some View {
-        HobbiesListView(viewModel: InjectedObject(HobbiesListViewModel(hobbyRepository: HobbyRepository(hobbyService: HobbyService()))))
+        HobbiesListView()
     }
 }
