@@ -8,5 +8,19 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: fastlane test
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          ruby-version: '3.1'
+      - name: Install dependencies
+        run: bundle install
+      - name: Generate project
+        run: |
+         /usr/bin/defaults write com.apple.dt.Xcode IDECustomDerivedDataLocation $(System.DefaultWorkingDirectory)/fastlane_builds/Tests # see https://github.com/tuist/tuist/blob/main/Sources/TuistSupport/Utils/DeveloperEnvironment.swift#L37
+          curl -Ls https://install.tuist.io | bash
+          tuist fetch
+          tuist cache warm --profile Release --dependencies-only
+          tuist generate --profile Release --no-open
+      - name: Run tests
+        run: fastlane test
