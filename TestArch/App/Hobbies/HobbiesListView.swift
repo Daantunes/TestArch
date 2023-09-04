@@ -1,11 +1,12 @@
 import SwiftUI
+import Factory
 
 struct HobbiesListView: View {
     
     // MARK: - Properties
 
-    @ObservedObject
-    var viewModel: HobbiesListViewModel
+    @InjectedObject(\.hobbiesListViewModel)
+    var viewModel
 
     // MARK: - View
     
@@ -42,6 +43,6 @@ struct HobbiesListView: View {
 
 struct HobbiesListView_Previews: PreviewProvider {
     static var previews: some View {
-        HobbiesListView(viewModel: HobbiesListViewModel(hobbyRepository: HobbyRepository(hobbyService: HobbyService())))
+        HobbiesListView(viewModel: InjectedObject(HobbiesListViewModel(hobbyRepository: HobbyRepository(hobbyService: HobbyService()))))
     }
 }

@@ -3,13 +3,14 @@
 //
 
 import SwiftUI
+import Factory
 
 struct LoginView: View {
 
     // MARK: - Properties
 
-    @ObservedObject
-    var viewModel: LoginViewModel
+    @InjectedObject(\.loginViewModel)
+    var viewModel
 
     // MARK: - View
 
