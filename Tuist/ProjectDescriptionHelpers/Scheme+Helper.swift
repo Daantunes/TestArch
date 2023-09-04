@@ -7,7 +7,7 @@ public extension Scheme {
         shared: true,
         buildAction: .buildAction(
             targets: [
-                TargetReference(stringLiteral: Target.testArch.name)
+                .app
             ]
         ),
         runAction: .runAction(
@@ -23,7 +23,7 @@ public extension Scheme {
         shared: true,
         buildAction: .buildAction(
             targets: [
-                TargetReference(stringLiteral: Target.testArch.name)
+                .app
             ]
         ),
         runAction: .runAction(
@@ -32,5 +32,33 @@ public extension Scheme {
         archiveAction: .archiveAction(configuration: .production),
         profileAction: .profileAction(configuration: .production),
         analyzeAction: .analyzeAction(configuration: .production)
+    )
+}
+
+// MARK: - Tests
+
+public extension Scheme {
+
+    static let testArchUnitTest = Scheme(
+        name: "Test Unit",
+        shared: true,
+        hidden: true,
+        buildAction: .buildAction(
+            targets: [
+                .appTests
+            ]
+        ),
+        testAction: .targets(
+            [
+                .appTests
+            ],
+            options: .options(
+                coverage: true,
+                codeCoverageTargets: [
+                    .app
+                ]
+            )
+        ),
+        runAction: .runAction(executable: .app)
     )
 }

@@ -17,11 +17,13 @@ let project = Project(
         .testArchProduction
     ]),
     targets: [
-        .testArch
+        .testArch,
+        .testArchTests
     ],
     schemes: [
         .testArchDebug,
-        .testArchProd
+        .testArchProd,
+        .testArchUnitTest
     ],
     fileHeaderTemplate: .file(.relativeToRoot("Tuist/file-header-template.txt"))
 )
