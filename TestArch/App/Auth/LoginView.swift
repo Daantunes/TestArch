@@ -3,13 +3,14 @@
 //
 
 import SwiftUI
+import Factory
 
 struct LoginView: View {
 
     // MARK: - Properties
 
-    @ObservedObject
-    var viewModel: LoginViewModel
+    @InjectedObject(\.loginViewModel)
+    var viewModel
 
     // MARK: - View
 
@@ -42,8 +43,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-
-        // TODO: Fix preview
-        EmptyView()
+        LoginView()
     }
 }

@@ -4,6 +4,7 @@
 
 import SwiftUI
 import Stinsen
+import Factory
 
 final class HobbiesCoordinator: NavigationCoordinatable {
 
@@ -19,10 +20,10 @@ final class HobbiesCoordinator: NavigationCoordinatable {
 
 private extension HobbiesCoordinator {
     func makeHobbies() -> some View {
-        DependencyContainer.shared.makeHobbiesListView()
+        HobbiesListView()
     }
 
     func makeHobbyDetail(name: String) -> some View {
-        DependencyContainer.shared.makeHobbiesDetailView(name: name)
+        HobbiesDetailView(viewModel: Container.shared.hobbiesDetailViewModel(name))
     }
 }

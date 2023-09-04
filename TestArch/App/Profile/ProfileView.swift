@@ -1,11 +1,12 @@
 import SwiftUI
+import Factory
 
 struct ProfileView: View {
 
     // MARK: - Properties
 
-    @ObservedObject
-    var viewModel: ProfileViewModel
+    @InjectedObject(\.profileViewModel)
+    var viewModel
 
     // MARK: - View
     
@@ -23,6 +24,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(viewModel: ProfileViewModel(userRepository: UserRepository(userService: UserService())))
+        ProfileView()
     }
 }
