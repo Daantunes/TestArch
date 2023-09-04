@@ -6,7 +6,9 @@ let project = Project(
     name: "TestArch",
     organizationName: "xgeeks",
     options: .options(
-        automaticSchemesOptions: .disabled
+        automaticSchemesOptions: .disabled,
+        disableBundleAccessors: true,
+        disableSynthesizedResourceAccessors: true
     ),
     packages: [
         ProjectDependencies.stinsen.package,
@@ -17,11 +19,13 @@ let project = Project(
         .testArchProduction
     ]),
     targets: [
-        .testArch
+        .testArch,
+        .testArchTests
     ],
     schemes: [
         .testArchDebug,
-        .testArchProd
+        .testArchProd,
+        .testArchUnitTest
     ],
     fileHeaderTemplate: .file(.relativeToRoot("Tuist/file-header-template.txt"))
 )

@@ -26,4 +26,16 @@ public extension Target {
             ]
         )
     )
+
+    static let testArchTests = Target(
+        name: "TestArchTests",
+        platform: .iOS,
+        product: .unitTests,
+        bundleId: "$(PRODUCT_BUNDLE_IDENTIFIER)Tests",
+        sources: ["TestArchTests/**"],
+        resources: [],
+        dependencies: [
+            .target(name: "TestArch")
+        ]
+    )
 }
