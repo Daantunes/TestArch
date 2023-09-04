@@ -24,6 +24,7 @@ jobs:
           tuist generate --profile Release --no-open
   test:
     runs-on: macos-latest
+    needs: [install_dependencies, generate]
     steps:
       - uses: actions/checkout@v3
       - name: Run tests
