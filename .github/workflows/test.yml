@@ -5,7 +5,7 @@ on:
       - 'main'
 
 jobs:
-  build:
+  install_dependencies:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,10 +13,15 @@ jobs:
         with:
           ruby-version: 3.2
           bundler-cache: true
-      - uses: tuist/tuist-action@0.13.0
-        with:
-          command: 'build'
-          arguments: ''
+  generate:
+    runs-on: macos-latest
+    steps:
+      - name: Generate project
+        run: |
+          curl -Ls https://install.tuist.io | bash
+          tuist fetch
+          tuist cache warm --profile Release --dependencies-only
+          tuist generate --profile Release --no-open
   test:
     runs-on: macos-latest
     steps:
