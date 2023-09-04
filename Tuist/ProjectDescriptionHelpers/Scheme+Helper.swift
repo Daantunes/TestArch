@@ -10,6 +10,10 @@ public extension Scheme {
                 .app
             ]
         ),
+        testAction: .targets(
+            [.appTests],
+            configuration: .debug
+        ),
         runAction: .runAction(
             configuration: .debug
         ),
@@ -25,6 +29,10 @@ public extension Scheme {
             targets: [
                 .app
             ]
+        ),
+        testAction: .targets(
+            [.appTests],
+            configuration: .production
         ),
         runAction: .runAction(
             configuration: .production

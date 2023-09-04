@@ -9,17 +9,13 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
-      - name: Install dependencies
-        run: bundle install
-      - name: Generate project
-        run: |
-          curl -Ls https://install.tuist.io | bash
-          tuist fetch
-          tuist cache warm --profile Release --dependencies-only
-          tuist generate --profile Release --no-open
+          ruby-version: 3.1
+          bundler-cache: true
+      - uses: tuist/tuist-action@0.13.0
+        with:
+          command: 'build'
+          arguments: ''
       - name: Run tests
         run: fastlane test
