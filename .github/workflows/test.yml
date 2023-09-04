@@ -28,14 +28,25 @@ jobs:
           tuist fetch
           tuist cache warm --profile Release --dependencies-only
           tuist generate --profile Release --no-open
+      - name: Archive generated files
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-artifact
+          path: .tuist/output
   test:
     runs-on: macos-latest
     needs: [install_dependencies, generate]
     steps:
-      - uses: actions/checkout@v3
+      - name: Download generated files
+        uses: actions/download-artifact@v2
+        with:
+          name: generated-artifact
+          path: .tuist/output 
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
           ruby-version: '3.2'
       - name: Run tests
-        run: bundle exec fastlane test
+        run: |
+          cd .tuist/output
+          bundle exec fastlane test
