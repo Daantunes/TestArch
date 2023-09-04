@@ -2,7 +2,7 @@
 //  Copyright © 2023 xgeeks. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 import Stinsen
 
 class LoginViewModel: ViewModelObject {
@@ -63,7 +63,6 @@ extension LoginViewModel {
             case .tryAgain:
                 state = .success(true)
             }
-
         }
     }
 }

@@ -7,6 +7,8 @@ struct ProfileView: View {
     @ObservedObject
     var viewModel: ProfileViewModel
 
+    // MARK: - View
+    
     var body: some View {
         StateView(source: viewModel) { _ in
             Text(viewModel.configuration.name)
@@ -16,6 +18,8 @@ struct ProfileView: View {
         }
     }
 }
+
+// MARK: - Previews
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

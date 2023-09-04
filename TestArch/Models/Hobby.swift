@@ -6,7 +6,7 @@ enum Difficulty: Codable {
     case medium
 }
 
-struct Hobby: Codable {
+struct Hobby: Codable, Identifiable {
     var id = UUID()
     var name: String
     var difficulty: Difficulty

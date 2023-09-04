@@ -59,9 +59,3 @@ private extension ProfileViewModel {
         state = .success(true)
     }
 }
-
-//// MARK: - Login Error
-//
-//private enum LoginError: Error {
-//    case fail
-//}

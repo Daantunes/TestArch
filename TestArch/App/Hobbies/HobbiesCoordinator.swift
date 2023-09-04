@@ -19,7 +19,7 @@ final class HobbiesCoordinator: NavigationCoordinatable {
 
 private extension HobbiesCoordinator {
     func makeHobbies() -> some View {
-        HobbiesListView()
+        DependencyContainer.shared.makeHobbiesListView()
     }
 
     func makeHobbyDetail(name: String) -> some View {
