@@ -11,11 +11,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: 3.2
           bundler-cache: true
       - uses: tuist/tuist-action@0.13.0
         with:
           command: 'build'
           arguments: ''
+  test:
+    runs-on: macos-latest
+    steps:
       - name: Run tests
         run: fastlane test
