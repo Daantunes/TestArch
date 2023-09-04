@@ -15,10 +15,23 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install
+      - name: Cache gems
+        uses: actions/cache@v3
+        with:
+          key: 'gems | "$(Agent.OS)" | Gemfile.lock'
+          restoreKeys: |
+            gems | "$(Agent.OS)"
+            gems
+          path: $(BUNDLE_PATH)
   generate:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Cache Tuist cache
+        uses: actions/cache@v3
+        with:
+          key: '"tuist cache" | Project.swift | .package.resolved'
+          path: Tuist/Cache
       - name: Generate project
         run: |
           curl -Ls https://install.tuist.io | bash
@@ -30,5 +43,7 @@ jobs:
     needs: [install_dependencies, generate]
     steps:
       - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: bundle install
       - name: Run tests
         run: bundle exec fastlane test
