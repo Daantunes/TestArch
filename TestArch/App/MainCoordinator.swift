@@ -19,7 +19,7 @@ final class MainCoordinator: NavigationCoordinatable {
 
 private extension MainCoordinator {
     func makeStart() -> some View {
-        return LoginView(viewModel: DependencyContainer.shared.resolveLoginViewModel())
+        return DependencyContainer.shared.makeLoginView()
     }
 
     func makeAuthenticated() -> TabViewCoordinator {

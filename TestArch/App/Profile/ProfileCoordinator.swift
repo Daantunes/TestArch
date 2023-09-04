@@ -19,6 +19,6 @@ final class ProfileCoordinator: NavigationCoordinatable {
 
 private extension ProfileCoordinator {
     func makeProfile() -> some View {
-        ProfileView()
+        DependencyContainer.shared.makeProfileLoginView()
     }
 }

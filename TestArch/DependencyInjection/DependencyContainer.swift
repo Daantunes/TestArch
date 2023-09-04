@@ -4,9 +4,9 @@ import SwiftUI
 final class DependencyContainer: ObservableObject {
     static let shared = DependencyContainer()
 
-    var userRepository: UserRepository = .init(userService: UserService())
+    private var userRepository: UserRepository = .init(userService: UserService())
 
-    var hobbyRepository: HobbyRepository = .init(hobbyService: HobbyService())
+    private var hobbyRepository: HobbyRepository = .init(hobbyService: HobbyService())
 
     // MARK: - Views -
 
@@ -14,9 +14,33 @@ final class DependencyContainer: ObservableObject {
         LoginView(viewModel: resolveLoginViewModel())
     }
 
+    func makeProfileLoginView() -> ProfileView {
+        ProfileView(viewModel: resolveProfileViewModel())
+    }
+
+    func makeHobbiesListView() -> HobbiesListView {
+        HobbiesListView(viewModel: resolveHobbiesListViewModel())
+    }
+
+    func makeHobbiesDetailView(name: String) -> HobbiesDetailView {
+        HobbiesDetailView(viewModel: resolveHobbiesDetailViewModel(name: name))
+    }
+
     // MARK: - View Models -
 
-    func resolveLoginViewModel() -> LoginViewModel {
+    private func resolveLoginViewModel() -> LoginViewModel {
         LoginViewModel(userRepository: userRepository)
+    }
+
+    private func resolveProfileViewModel() -> ProfileViewModel {
+        ProfileViewModel(userRepository: userRepository)
+    }
+
+    private func resolveHobbiesListViewModel() -> HobbiesListViewModel {
+        HobbiesListViewModel(hobbyRepository: hobbyRepository)
+    }
+
+    private func resolveHobbiesDetailViewModel(name: String) -> HobbiesDetailViewModel {
+        HobbiesDetailViewModel(name: name)
     }
 }

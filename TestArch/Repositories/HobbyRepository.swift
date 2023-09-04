@@ -8,6 +8,14 @@ struct HobbyRepository {
 
     init(hobbyService: HobbyService) {
         self.hobbyService = hobbyService
-        hobbies = hobbyService.loadHobbies() ?? []
+        hobbies = [
+            Hobby(name: "Dance", difficulty: .easy),
+            Hobby(name: "Photography", difficulty: .easy),
+            Hobby(name: "Running", difficulty: .easy)
+        ]
+    }
+
+    func getHobbies() -> [Hobby] {
+        return hobbies
     }
 }
