@@ -6,7 +6,7 @@ let project = Project(
     name: "TestArch",
     organizationName: "xgeeks",
     options: .options(
-        automaticSchemesOptions: .disabled
+        automaticSchemesOptions: .disabled,
     ),
     packages: [
         ProjectDependencies.stinsen.package,

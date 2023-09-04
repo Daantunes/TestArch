@@ -82,6 +82,8 @@ private extension LoginViewModel {
 
 // MARK: - Login Error
 
-private enum LoginError: Error {
-    case fail
+extension LoginViewModel {
+    enum LoginError: Error {
+        case fail
+    }
 }
