@@ -30,6 +30,30 @@ enum ViewModelState<Value: Equatable> {
     case success(Value)
 }
 
+// MARK: Equatable
+
+extension ViewModelState: Equatable {
+
+    static func == (lhs: ViewModelState<Value>, rhs: ViewModelState<Value>) -> Bool {
+        switch (lhs, rhs) {
+        case let (.failed(lhsError), .failed(rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+
+        case (.idle, .idle):
+            return true
+
+        case (.loading, .loading):
+            return true
+
+        case let (.success(lhsValue), .success(rhsValue)):
+            return lhsValue == rhsValue
+
+        default:
+            return false
+        }
+    }
+}
+
 // MARK: Properties
 
 extension ViewModelState {
