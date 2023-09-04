@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: generated-artifact
-          path: .tuist/output
+          path: "."
   test:
     runs-on: macos-latest
     needs: [install_dependencies, generate]
@@ -41,12 +41,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: generated-artifact
-          path: .tuist/output 
+          path: "."
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
           ruby-version: '3.2'
       - name: Run tests
-        run: |
-          cd .tuist/output
-          bundle exec fastlane test
+        run: bundle exec fastlane test
