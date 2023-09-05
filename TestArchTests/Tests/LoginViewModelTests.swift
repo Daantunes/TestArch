@@ -14,14 +14,15 @@ final class LoginViewModelTests: XCTestCase {
 
     // MARK: - Life cycle
 
-    override func setUpWithError() throws {
+    override func setUp() {
         userService = UserService()
         userRepository = UserRepositoryMock(userService: userService)
     }
 
-    // swiftlint:disable empty_xctest_method
-    override func tearDownWithError() throws {}
-    // swiftlint:enable empty_xctest_method
+    override func tearDown() {
+        userRepository = nil
+        userService = nil
+    }
 }
 
 // MARK: - Tests
