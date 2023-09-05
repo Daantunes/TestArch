@@ -28,5 +28,12 @@ jobs:
     runs-on: macos-latest
     needs: generate_project
     steps:
+      - name: Download generated files
+        uses: actions/download-artifact@v2
+        with:
+          name: tuist_project
+          path: "."
+      - name: Run tests
+        run: bundle exec fastlane test
       - name: Run tests
         run: fastlane test
