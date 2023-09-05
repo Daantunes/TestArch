@@ -4,6 +4,7 @@
 set -eu
 
 # Format source code
+echo "PRE-COMMIT"
 STAGED_SWIFT_FILES=$(git_staged_files_with_extension "swift")
 if [ -n "$STAGED_SWIFT_FILES" ]; then
     PRE_FORMAT_HASH=$(echo "$STAGED_SWIFT_FILES" | xargs git --no-pager diff | md5)
