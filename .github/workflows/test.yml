@@ -13,7 +13,7 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: '3.2'
-  generate:
+  generate_project:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
         with:
           name: generated-artifact
           path: "."
-  test:
+  unit_tests:
     runs-on: macos-latest
     needs: [install_dependencies, generate]
     steps:
