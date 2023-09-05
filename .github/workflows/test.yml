@@ -8,25 +8,11 @@ jobs:
   swiftLint:
     name: SwiftLint
     uses: ./.github/workflows/swiftlint.yml
-  install_dependencies:
-    runs-on: macos-latest
-    needs: swiftLint
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: '3.2'
   generate_project:
     runs-on: macos-latest
     needs: swiftLint
     steps:
       - uses: actions/checkout@v3
-      - name: Cache Tuist cache
-        uses: actions/cache@v3
-        with:
-          key: '"tuist cache" | Project.swift | .package.resolved'
-          path: Tuist/Cache
       - name: Generate project
         run: |
           curl -Ls https://install.tuist.io | bash
@@ -42,14 +28,5 @@ jobs:
     runs-on: macos-latest
     needs: [install_dependencies, generate_project]
     steps:
-      - name: Download generated files
-        uses: actions/download-artifact@v2
-        with:
-          name: tuist_project
-          path: "."
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          ruby-version: '3.2'
       - name: Run tests
-        run: bundle exec fastlane test
+        run: fastlane test
