@@ -26,7 +26,7 @@ public extension Target {
                     """,
                 name: "SwiftLint",
                 basedOnDependencyAnalysis: false
-            ),
+            )
         ],
         dependencies: [
             .package(product: ProjectDependencies.stinsen.name),
