@@ -5,6 +5,9 @@ on:
 
 jobs:
   SwiftLint:
-    uses: raphaelbussa/swiftlint-action@main
-    with:
-      subcommand: lint --strict # Pass any subcommand needed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: SwiftLint Action
+        uses: raphaelbussa/swiftlint-action@v1.0.0
+            
