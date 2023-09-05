@@ -33,7 +33,9 @@ jobs:
         with:
           name: tuist_project
           path: "."
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: '3.2'
       - name: Run tests
         run: bundle exec fastlane test
-      - name: Run tests
-        run: fastlane test
