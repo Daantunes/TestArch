@@ -3,7 +3,6 @@ import ProjectDescription
 public extension TestableTarget {
 
     static let appTests: Self = .from(target: .testArchTests)
-
 }
 
 // MARK: - Helpers

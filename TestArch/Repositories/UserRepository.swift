@@ -13,6 +13,6 @@ class UserRepository {
     }
 
     func getUserName() -> String {
-        return user?.name ?? "Anonimous"
+        user?.name ?? "Anonimous"
     }
 }

@@ -19,11 +19,10 @@ final class MainCoordinator: NavigationCoordinatable {
 
 private extension MainCoordinator {
     func makeStart() -> some View {
-        return LoginView()
+        LoginView()
     }
 
     func makeAuthenticated() -> TabViewCoordinator {
         TabViewCoordinator()
     }
 }
-

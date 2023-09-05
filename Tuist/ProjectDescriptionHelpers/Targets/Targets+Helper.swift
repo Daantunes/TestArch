@@ -15,9 +15,22 @@ public extension Target {
         infoPlist: .file(path: "TestArch/App/Configurations/Info.plist"),
         sources: ["TestArch/**"],
         resources: ["TestArch/Resources/**"],
+        scripts: [
+            .post(
+                script: """
+                    if which swiftlint >/dev/null; then
+                        swiftlint
+                    else
+                        echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+                    fi
+                    """,
+                name: "SwiftLint",
+                basedOnDependencyAnalysis: false
+            )
+        ],
         dependencies: [
             .package(product: ProjectDependencies.stinsen.name),
-            .package(product: ProjectDependencies.factory.name),
+            .package(product: ProjectDependencies.factory.name)
         ],
         settings: .settings(
             configurations: [

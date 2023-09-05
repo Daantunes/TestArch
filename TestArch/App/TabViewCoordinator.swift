@@ -12,7 +12,7 @@ final class TabViewCoordinator: TabCoordinatable {
     var child = TabChild(
         startingItems: [
             \TabViewCoordinator.profile,
-             \TabViewCoordinator.hobbies,
+             \TabViewCoordinator.hobbies
         ]
     )
 
@@ -39,5 +39,4 @@ private extension TabViewCoordinator {
     func makeHobbies() -> NavigationViewCoordinator<HobbiesCoordinator> {
         NavigationViewCoordinator(HobbiesCoordinator())
     }
-
 }

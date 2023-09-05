@@ -16,6 +16,6 @@ struct HobbyRepository {
     }
 
     func getHobbies() -> [Hobby] {
-        return hobbies
+        hobbies
     }
 }

@@ -12,7 +12,6 @@ final class ProfileCoordinator: NavigationCoordinatable {
     var stack = NavigationStack(initial: \ProfileCoordinator.profile)
 
     @Root private var profile = makeProfile
-
 }
 
 // MARK: - Views

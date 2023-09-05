@@ -22,7 +22,7 @@ public extension Scheme {
         analyzeAction: .analyzeAction(configuration: .debug)
     )
 
-    static let testArchProd =   Scheme(
+    static let testArchProd = Scheme(
         name: "TestArchProd",
         shared: true,
         buildAction: .buildAction(

@@ -58,8 +58,8 @@ extension LoginViewModel {
     func send(_ event: ViewModelEvent<ViewEvent>) {
         if case let .event(viewEvent) = event {
             switch viewEvent {
-            case .loginButtonTap:
-                login()
+            case .loginButtonTap: login()
+
             case .tryAgain:
                 state = .success(true)
             }
@@ -74,7 +74,8 @@ private extension LoginViewModel {
         if configuration.validatePassword() && configuration.validateUsername() {
             userRepository.user = User(name: configuration.username, email: "")
             router?.coordinator.root(\.authenticated)
-        } else {
+        }
+        else {
             state = .failed(LoginError.fail)
         }
     }

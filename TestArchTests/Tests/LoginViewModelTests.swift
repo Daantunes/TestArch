@@ -20,7 +20,6 @@ final class LoginViewModelTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-
     }
 }
 
@@ -48,7 +47,7 @@ extension LoginViewModelTests {
 
         viewModel.send(.event(.loginButtonTap))
 
-        XCTAssertEqual(viewModel.state , .failed(LoginViewModel.LoginError.fail))
+        XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
     }
 
     func test_login_invalidPassword() {
@@ -60,7 +59,7 @@ extension LoginViewModelTests {
 
         viewModel.send(.event(.loginButtonTap))
 
-        XCTAssertEqual(viewModel.state , .failed(LoginViewModel.LoginError.fail))
+        XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
     }
 
 
@@ -69,7 +68,7 @@ extension LoginViewModelTests {
 
         viewModel.send(.event(.loginButtonTap))
 
-        XCTAssertEqual(viewModel.state , .failed(LoginViewModel.LoginError.fail))
+        XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
 
         viewModel.send(.event(.tryAgain))
 
