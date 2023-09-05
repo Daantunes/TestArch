@@ -3,6 +3,16 @@
 
 set -eu
 
+function git_staged_files_with_extension() {
+    # $1 == file extension
+    set +e # grep returns non-zero exit code if no matches were found
+    RESULTS=$(git --no-pager diff --staged --name-only --diff-filter=d | grep -e "\.$1\$")
+    set -e
+    echo "$RESULTS"
+}
+
+MESSAGES=""
+
 # Format source code
 echo "PRE-COMMIT"
 STAGED_SWIFT_FILES=$(git_staged_files_with_extension "swift")
