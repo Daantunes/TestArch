@@ -19,7 +19,7 @@ public extension Target {
             .post(
                 script: """
                     if which swiftlint >/dev/null; then
-                        swiftlint
+                        swiftlint --strict
                     else
                         echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
                     fi
