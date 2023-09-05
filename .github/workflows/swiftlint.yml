@@ -1,11 +1,12 @@
 name: SwiftLint
 
 on:
-  workflow_call:
+  pull_request:
     paths:
       - '.github/workflows/swiftlint.yml'
       - '.swiftlint.yml'
       - '**/*.swift'
+  workflow_call:
 
 jobs:
   SwiftLint:
