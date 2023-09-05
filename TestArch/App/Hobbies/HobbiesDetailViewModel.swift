@@ -33,7 +33,7 @@ extension HobbiesDetailViewModel {
     typealias Event = ViewModelEvent<ViewEvent>
     typealias State = ViewModelState<Bool>
 
-    enum ViewEvent { }
+    enum ViewEvent {}
 
-    func send(_ event: ViewModelEvent<ViewEvent>) { }
+    func send(_ event: ViewModelEvent<ViewEvent>) {}
 }

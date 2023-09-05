@@ -1,6 +1,6 @@
+import ProjectDependencies
 import ProjectDescription
 import ProjectDescriptionHelpers
-import ProjectDependencies
 
 let project = Project(
     name: "TestArch",

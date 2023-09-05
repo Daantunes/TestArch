@@ -35,11 +35,11 @@ extension LoginViewModel {
         var password: String
 
         func validatePassword() -> Bool {
-            password != "" ? true : false
+            !password.isEmpty
         }
 
         func validateUsername() -> Bool {
-            username != "" ? true : false
+            !username.isEmpty
         }
     }
 }
@@ -58,7 +58,8 @@ extension LoginViewModel {
     func send(_ event: ViewModelEvent<ViewEvent>) {
         if case let .event(viewEvent) = event {
             switch viewEvent {
-            case .loginButtonTap: login()
+            case .loginButtonTap:
+                login()
 
             case .tryAgain:
                 state = .success(true)
@@ -71,7 +72,7 @@ extension LoginViewModel {
 
 private extension LoginViewModel {
     func login() {
-        if configuration.validatePassword() && configuration.validateUsername() {
+        if configuration.validatePassword(), configuration.validateUsername() {
             userRepository.user = User(name: configuration.username, email: "")
             router?.coordinator.root(\.authenticated)
         }

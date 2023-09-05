@@ -1,5 +1,5 @@
-import ProjectDescription
 import ProjectDependencies
+import ProjectDescription
 
 public extension Target {
 
@@ -26,6 +26,21 @@ public extension Target {
                     """,
                 name: "SwiftLint",
                 basedOnDependencyAnalysis: false
+            ),
+            .post(
+                script: """
+                    if [[ "$(uname -m)" == arm64 ]]; then
+                        export PATH="/opt/homebrew/bin:$PATH"
+                    fi
+
+                    if which swiftformat > /dev/null; then
+                    swiftformat .
+                    else
+                    echo "warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat"
+                    fi
+                    """,
+                name: "SwiftFormat",
+                basedOnDependencyAnalysis: false
             )
         ],
         dependencies: [
@@ -45,7 +60,7 @@ public extension Target {
         platform: .iOS,
         product: .unitTests,
         bundleId: "$(PRODUCT_BUNDLE_IDENTIFIER)Tests",
-         deploymentTarget: .iOS(
+        deploymentTarget: .iOS(
             targetVersion: "15.6",
             devices: .iphone
         ),

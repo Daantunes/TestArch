@@ -19,8 +19,9 @@ final class LoginViewModelTests: XCTestCase {
         userRepository = UserRepositoryMock(userService: userService)
     }
 
-    override func tearDownWithError() throws {
-    }
+    // swiftlint:disable empty_xctest_method
+    override func tearDownWithError() throws {}
+    // swiftlint:enable empty_xctest_method
 }
 
 // MARK: - Tests
@@ -61,7 +62,6 @@ extension LoginViewModelTests {
 
         XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
     }
-
 
     func test_tryAgain() {
         let viewModel = LoginViewModel(userRepository: userRepository)

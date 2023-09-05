@@ -2,8 +2,8 @@
 //  Copyright © 2023 xgeeks. All rights reserved.
 //
 
-import SwiftUI
 import Stinsen
+import SwiftUI
 
 final class TabViewCoordinator: TabCoordinatable {
 
@@ -12,18 +12,20 @@ final class TabViewCoordinator: TabCoordinatable {
     var child = TabChild(
         startingItems: [
             \TabViewCoordinator.profile,
-             \TabViewCoordinator.hobbies
+            \TabViewCoordinator.hobbies
         ]
     )
 
-    @Route(tabItem: makeProfileTab) private var profile = makeProfile
-    @Route(tabItem: makeHobbiesTab) private var hobbies = makeHobbies
+    @Route(tabItem: makeProfileTab)
+    private var profile = makeProfile
+    @Route(tabItem: makeHobbiesTab)
+    private var hobbies = makeHobbies
 }
 
 // MARK: - Views and Coordinators
 
 private extension TabViewCoordinator {
-    
+
     func makeProfileTab(isActive: Bool) -> some View {
         Label("Profile", systemImage: isActive ? "person.fill" : "person")
     }

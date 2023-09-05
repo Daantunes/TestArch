@@ -9,7 +9,7 @@ import SwiftUI
 struct TestArchApp: App {
 
     // MARK: - Properties
-    
+
     var coordinator = MainCoordinator()
 
     // MARK: - Scene

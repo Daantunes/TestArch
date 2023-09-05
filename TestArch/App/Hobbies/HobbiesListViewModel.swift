@@ -53,7 +53,7 @@ extension HobbiesListViewModel {
             case .onViewAppear:
                 performOnViewAppear()
 
-            case .onClick(hobby: let hobby):
+            case let .onClick(hobby: hobby):
                 performOnClick(id: hobby)
 
             case .tryAgain:

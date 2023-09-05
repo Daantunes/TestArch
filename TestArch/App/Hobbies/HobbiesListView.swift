@@ -1,15 +1,15 @@
-import SwiftUI
 import Factory
+import SwiftUI
 
 struct HobbiesListView: View {
-    
+
     // MARK: - Properties
 
     @InjectedObject(\.hobbiesListViewModel)
     var viewModel
 
     // MARK: - View
-    
+
     var body: some View {
         StateView(source: viewModel) { error in
             Text(error.localizedDescription)
