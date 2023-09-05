@@ -15,6 +15,7 @@ struct StateView<
     private var source: Source
 
     private let content: (Source.ViewState) -> Content
+
     private let errorView: (Error) -> ErrorStateView
     private let loadingView: () -> LoadingStateView
 
