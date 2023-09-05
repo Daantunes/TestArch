@@ -5,8 +5,12 @@ on:
       - 'main'
 
 jobs:
+  swiftLint:
+    name: SwiftLint
+    uses: ./.github/workflows/swiftlint.yml
   install_dependencies:
     runs-on: macos-latest
+    needs: swiftLint
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -15,6 +19,7 @@ jobs:
           ruby-version: '3.2'
   generate_project:
     runs-on: macos-latest
+    needs: swiftLint
     steps:
       - uses: actions/checkout@v3
       - name: Cache Tuist cache
@@ -31,16 +36,16 @@ jobs:
       - name: Archive generated files
         uses: actions/upload-artifact@v2
         with:
-          name: generated-artifact
+          name: tuist_project
           path: "."
   unit_tests:
     runs-on: macos-latest
-    needs: [install_dependencies, generate]
+    needs: [install_dependencies, generate_project]
     steps:
       - name: Download generated files
         uses: actions/download-artifact@v2
         with:
-          name: generated-artifact
+          name: tuist_project
           path: "."
       - uses: ruby/setup-ruby@v1
         with:

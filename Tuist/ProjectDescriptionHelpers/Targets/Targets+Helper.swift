@@ -32,6 +32,10 @@ public extension Target {
         platform: .iOS,
         product: .unitTests,
         bundleId: "$(PRODUCT_BUNDLE_IDENTIFIER)Tests",
+         deploymentTarget: .iOS(
+            targetVersion: "15.6",
+            devices: .iphone
+        ),
         sources: ["TestArchTests/**"],
         resources: [],
         dependencies: [
