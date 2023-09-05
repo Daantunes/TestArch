@@ -26,7 +26,7 @@ jobs:
           path: "."
   unit_tests:
     runs-on: macos-latest
-    needs: [install_dependencies, generate_project]
+    needs: generate_project
     steps:
       - name: Run tests
         run: fastlane test
