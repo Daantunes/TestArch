@@ -8,6 +8,7 @@ struct HobbyRepository {
 
     init(hobbyService: HobbyService) {
         self.hobbyService = hobbyService
+        
         hobbies = [
             Hobby(name: "Dance", difficulty: .easy),
             Hobby(name: "Photography", difficulty: .easy),
