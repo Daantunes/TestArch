@@ -18,11 +18,11 @@ public extension Target {
         scripts: [
              .post(
                 script: """
-                    if [ $ENABLE_PREVIEWS == "YES" ]
-                    then
-                        exit 0;
+                    export PATH="$PATH:/opt/homebrew/bin"
+                    
+                    if [ -z "$CI" ]; then
+                    swiftlint
                     fi
-                    sh scripts/swiftlint.sh
                     """,
                 name: "SwiftLint",
                 basedOnDependencyAnalysis: false

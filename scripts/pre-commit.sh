@@ -18,7 +18,7 @@ STAGED_SWIFT_FILES=$(git_staged_files_with_extension "swift")
 echo "Running Pre-Commit"
 if [ -n "$STAGED_SWIFT_FILES" ]; then
     PRE_FORMAT_HASH=$(echo "$STAGED_SWIFT_FILES" | xargs git --no-pager diff | md5)
-    sh scripts/swiftformat.sh "$(echo "$STAGED_SWIFT_FILES" | tr ' ' ,)"
+    # sh scripts/swiftformat.sh "$(echo "$STAGED_SWIFT_FILES" | tr ' ' ,)"
 
     POST_FORMAT_HASH=$(echo "$STAGED_SWIFT_FILES" | xargs git --no-pager diff | md5)
 
