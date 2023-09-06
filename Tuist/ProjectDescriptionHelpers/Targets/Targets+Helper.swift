@@ -16,15 +16,26 @@ public extension Target {
         sources: ["TestArch/**"],
         resources: ["TestArch/Resources/**"],
         scripts: [
-             .post(
+            .post(
                 script: """
                     export PATH="$PATH:/opt/homebrew/bin"
-                    
+
                     if [ -z "$CI" ]; then
                     swiftlint
                     fi
                     """,
                 name: "SwiftLint",
+                basedOnDependencyAnalysis: false
+            ),
+            .post(
+                script: """
+                    export PATH="$PATH:/opt/homebrew/bin"
+
+                    if [ -z "$CI" ]; then
+                    swiftformat .
+                    fi
+                    """,
+                name: "SwiftFormat",
                 basedOnDependencyAnalysis: false
             )
         ],

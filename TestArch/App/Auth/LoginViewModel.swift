@@ -59,7 +59,7 @@ extension LoginViewModel {
         if case let .event(viewEvent) = event {
             switch viewEvent {
             case .loginButtonTap:
-                login()
+login()
 
             case .tryAgain:
                 state = .success(true)
