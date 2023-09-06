@@ -95,3 +95,6 @@ fastlane/README.md
 
 iOSInjectionProject/
 
+## Generated code
+Brewfile*.lock.json
+
