@@ -81,8 +81,8 @@
     redundantType,                      \
     redundantVoidReturnType,            \
     semicolons,                         \
-    sortImports,                      \
-    sortSwitchCases,                  \
+    sortedImports,                      \
+    sortedSwitchCases,                  \
     spaceAroundBraces,                  \
     spaceAroundBrackets,                \
     spaceAroundComments,                \

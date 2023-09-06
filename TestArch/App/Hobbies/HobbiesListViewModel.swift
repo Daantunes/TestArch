@@ -52,8 +52,10 @@ extension HobbiesListViewModel {
             switch viewEvent {
             case .onViewAppear:
                 performOnViewAppear()
-            case .onClick(hobby: let hobby):
+
+            case let .onClick(hobby: hobby):
                 performOnClick(id: hobby)
+
             case .tryAgain:
                 state = .success(true)
             }
@@ -70,9 +72,10 @@ private extension HobbiesListViewModel {
     }
 
     func performOnClick(id: UUID) {
-        if let hobby = configuration.hobbies.first(where: {$0.id == id}) {
+        if let hobby = configuration.hobbies.first(where: { $0.id == id }) {
             router?.route(to: \.hobbyDetail, hobby.name)
-        } else {
+        }
+        else {
             state = .failed(HobbiesListError.fail)
         }
     }

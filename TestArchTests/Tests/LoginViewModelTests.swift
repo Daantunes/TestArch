@@ -14,13 +14,14 @@ final class LoginViewModelTests: XCTestCase {
 
     // MARK: - Life cycle
 
-    override func setUpWithError() throws {
+    override func setUp() {
         userService = UserService()
         userRepository = UserRepositoryMock(userService: userService)
     }
 
-    override func tearDownWithError() throws {
-
+    override func tearDown() {
+        userRepository = nil
+        userService = nil
     }
 }
 
@@ -48,7 +49,7 @@ extension LoginViewModelTests {
 
         viewModel.send(.event(.loginButtonTap))
 
-        XCTAssertEqual(viewModel.state , .failed(LoginViewModel.LoginError.fail))
+        XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
     }
 
     func test_login_invalidPassword() {
@@ -60,16 +61,15 @@ extension LoginViewModelTests {
 
         viewModel.send(.event(.loginButtonTap))
 
-        XCTAssertEqual(viewModel.state , .failed(LoginViewModel.LoginError.fail))
+        XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
     }
-
 
     func test_tryAgain() {
         let viewModel = LoginViewModel(userRepository: userRepository)
 
         viewModel.send(.event(.loginButtonTap))
 
-        XCTAssertEqual(viewModel.state , .failed(LoginViewModel.LoginError.fail))
+        XCTAssertEqual(viewModel.state, .failed(LoginViewModel.LoginError.fail))
 
         viewModel.send(.event(.tryAgain))
 

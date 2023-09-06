@@ -2,8 +2,8 @@
 //  Copyright © 2023 xgeeks. All rights reserved.
 //
 
-import SwiftUI
 import Stinsen
+import SwiftUI
 
 final class MainCoordinator: NavigationCoordinatable {
 
@@ -11,19 +11,20 @@ final class MainCoordinator: NavigationCoordinatable {
 
     var stack = NavigationStack(initial: \MainCoordinator.start)
 
-    @Root var start = makeStart
-    @Root var authenticated = makeAuthenticated
+    @Root
+    var start = makeStart
+    @Root
+    var authenticated = makeAuthenticated
 }
 
 // MARK: - Views and Coordinators
 
 private extension MainCoordinator {
     func makeStart() -> some View {
-        return LoginView()
+        LoginView()
     }
 
     func makeAuthenticated() -> TabViewCoordinator {
         TabViewCoordinator()
     }
 }
-

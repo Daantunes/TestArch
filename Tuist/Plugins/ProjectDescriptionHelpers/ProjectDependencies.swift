@@ -19,6 +19,7 @@ public extension ProjectDependencies {
         switch self {
         case .stinsen:
             return .remote(url: "https://github.com/rundfunk47/stinsen", requirement: .upToNextMajor(from: "2.0.0"))
+
         case .factory:
             return .remote(url: "https://github.com/hmlongco/Factory", requirement: .upToNextMajor(from: "2.2.0"))
         }

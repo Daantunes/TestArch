@@ -1,0 +1,41 @@
+name: run-tests
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  swiftLint:
+    name: SwiftLint
+    uses: ./.github/workflows/swiftlint.yml
+  generate_project:
+    runs-on: macos-latest
+    needs: swiftLint
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate project
+        run: |
+          curl -Ls https://install.tuist.io | bash
+          tuist fetch
+          tuist cache warm --profile Release --dependencies-only
+          tuist generate --profile Release --no-open
+      - name: Archive generated files
+        uses: actions/upload-artifact@v2
+        with:
+          name: tuist_project
+          path: "."
+  unit_tests:
+    runs-on: macos-latest
+    needs: generate_project
+    steps:
+      - name: Download generated files
+        uses: actions/download-artifact@v2
+        with:
+          name: tuist_project
+          path: "."
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: '3.2'
+      - name: Run tests
+        run: bundle exec fastlane test

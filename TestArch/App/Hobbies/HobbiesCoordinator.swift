@@ -2,9 +2,9 @@
 //  Copyright © 2023 xgeeks. All rights reserved.
 //
 
-import SwiftUI
-import Stinsen
 import Factory
+import Stinsen
+import SwiftUI
 
 final class HobbiesCoordinator: NavigationCoordinatable {
 
@@ -12,8 +12,10 @@ final class HobbiesCoordinator: NavigationCoordinatable {
 
     var stack = NavigationStack(initial: \HobbiesCoordinator.hobbies)
 
-    @Root private var hobbies = makeHobbies
-    @Route(.push) private(set) var hobbyDetail = makeHobbyDetail
+    @Root
+    private var hobbies = makeHobbies
+    @Route(.push)
+    private(set) var hobbyDetail = makeHobbyDetail
 }
 
 // MARK: - Views

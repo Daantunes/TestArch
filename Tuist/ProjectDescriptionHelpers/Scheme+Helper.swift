@@ -10,6 +10,10 @@ public extension Scheme {
                 .app
             ]
         ),
+        testAction: .targets(
+            [.appTests],
+            configuration: .debug
+        ),
         runAction: .runAction(
             configuration: .debug
         ),
@@ -18,13 +22,17 @@ public extension Scheme {
         analyzeAction: .analyzeAction(configuration: .debug)
     )
 
-    static let testArchProd =   Scheme(
+    static let testArchProd = Scheme(
         name: "TestArchProd",
         shared: true,
         buildAction: .buildAction(
             targets: [
                 .app
             ]
+        ),
+        testAction: .targets(
+            [.appTests],
+            configuration: .production
         ),
         runAction: .runAction(
             configuration: .production

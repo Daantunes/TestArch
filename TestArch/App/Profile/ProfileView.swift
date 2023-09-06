@@ -1,5 +1,5 @@
-import SwiftUI
 import Factory
+import SwiftUI
 
 struct ProfileView: View {
 
@@ -9,7 +9,7 @@ struct ProfileView: View {
     var viewModel
 
     // MARK: - View
-    
+
     var body: some View {
         StateView(source: viewModel) { _ in
             Text(viewModel.configuration.name)

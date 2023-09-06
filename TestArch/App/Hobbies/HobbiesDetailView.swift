@@ -14,7 +14,6 @@ struct HobbiesDetailView: View {
             Text(viewModel.configuration.name)
                 .foregroundColor(.green)
         }
-
     }
 }
 

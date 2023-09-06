@@ -1,12 +1,14 @@
+import ProjectDependencies
 import ProjectDescription
 import ProjectDescriptionHelpers
-import ProjectDependencies
 
 let project = Project(
     name: "TestArch",
     organizationName: "xgeeks",
     options: .options(
         automaticSchemesOptions: .disabled,
+        disableBundleAccessors: true,
+        disableSynthesizedResourceAccessors: true
     ),
     packages: [
         ProjectDependencies.stinsen.package,
